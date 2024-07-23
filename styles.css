@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.bouquet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 80%;
+    height: 80%;
+}
+
+.flower {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.petal {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: pink;
+    border-radius: 50% 50% 0 0;
+    transform-origin: bottom center;
+    opacity: 1;
+    animation: showPetal 1s forwards;
+}
+
+.petal:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.petal:nth-child(2) {
+    transform: rotate(90deg);
+}
+
+.petal:nth-child(3) {
+    transform: rotate(180deg);
+}
+
+.petal:nth-child(4) {
+    transform: rotate(270deg);
+}
+
+.center {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 45px;
+    left: 45px;
+}
+
+.message {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+@keyframes showPetal {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes witherPetal {
+    0% { transform: rotate(0deg) translateY(0) scale(1); opacity: 1; }
+    25% { transform: rotate(0deg) translateY(-20px) scale(1.2); opacity: 0.8; }
+    50% { transform: rotate(45deg) translateY(10px) scale(0.8); opacity: 0.6; }
+    75% { transform: rotate(90deg) translateY(-10px) scale(1); opacity: 0.4; }
+    100% { transform: rotate(180deg) translateY(-30px) scale(0.5); opacity: 0; }
+}
+
+.flower .petal {
+    animation: showPetal 1s forwards;
+}
+
+.flower .petal:nth-child(1) {
+    animation: showPetal 1s forwards, witherPetal 10s 1s forwards;
+}
+
+.flower .petal:nth-child(2) {
+    animation: showPetal 1s forwards, witherPetal 10s 1.5s forwards;
+}
+
+.flower .petal:nth-child(3) {
+    animation: showPetal 1s forwards, witherPetal 10s 2s forwards;
+}
+
+.flower .petal:nth-child(4) {
+    animation: showPetal 1s forwards, witherPetal 10s 2.5s forwards;
+}
